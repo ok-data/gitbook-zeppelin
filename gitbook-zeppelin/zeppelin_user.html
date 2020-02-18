@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>다운로드 & 설치 · GitBook</title>
+        <title>유저 생성 · GitBook</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -57,10 +57,8 @@
     <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="zeppelin_user.html" />
     
-    
-    <link rel="prev" href="./" />
+    <link rel="prev" href="zeppelin_install.html" />
     
 
     </head>
@@ -103,7 +101,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.1.1" data-path="zeppelin_install.html">
+        <li class="chapter " data-level="1.1.1" data-path="zeppelin_install.html">
             
                 <a href="zeppelin_install.html">
             
@@ -116,7 +114,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.1.2" data-path="zeppelin_user.html">
+        <li class="chapter active" data-level="1.1.2" data-path="zeppelin_user.html">
             
                 <a href="zeppelin_user.html">
             
@@ -164,7 +162,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="." >다운로드 & 설치</a>
+        <a href="." >유저 생성</a>
     </h1>
 </div>
 
@@ -179,25 +177,21 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="&#xB2E4;&#xC6B4;&#xB85C;&#xB4DC;--&#xC124;&#xCE58;">&#xB2E4;&#xC6B4;&#xB85C;&#xB4DC; &amp; &#xC124;&#xCE58;</h1>
-<pre><code class="lang-bash">wget http://apache.mirror.cdnetworks.com/zeppelin/zeppelin-0.8.2/zeppelin-0.8.2-bin-all.tgz
-
-tar xvf zeppelin-0.8.2-bin-all.tgz
-
-mv zeppelin-0.8.2-bin-all /opt/zeppelin-0.8.2
-
-chown -R hdfs:hadoop /opt/zeppelin
+                                <h1 id="&#xC720;&#xC800;-&#xC0DD;&#xC131;">&#xC720;&#xC800; &#xC0DD;&#xC131;</h1>
+<pre><code class="lang-bash">cp <span class="hljs-variable">$ZEPPELIN_HOME</span>/conf/shiro.ini.template <span class="hljs-variable">$ZEPPELIN_HOME</span>/conf/shiro.ini
 </code></pre>
-<p><code>profile.d</code> &#xC5D0; &#xB4F1;&#xB85D;</p>
-<pre><code class="lang-bash"><span class="hljs-built_in">export</span> <span class="hljs-string">&quot;ZEPPELIN_HOME=/opt/zeppelin-0.8.2&quot;</span> &gt;&gt; /etc/profile.d/zeppelin.sh
-<span class="hljs-built_in">export</span> <span class="hljs-string">&quot;HADOOP_CONF_DIR=/opt/hadoop-2.7.7/etc/hadoop&quot;</span> &gt;&gt; /etc/profile.d/zeppelin.sh
-<span class="hljs-built_in">export</span> <span class="hljs-string">&quot;PATH=<span class="hljs-variable">$PATH</span>:<span class="hljs-variable">$ZEPPELIN_HOME</span>/bin&quot;</span> &gt;&gt; /etc/profile.d/zeppelin.sh
+<pre><code class="lang-bash">vim <span class="hljs-variable">$ZEPPELIN_HOME</span>/conf/shiro.ini
 </code></pre>
-<p>&#xC8FC;&#xC694; &#xC124;&#xC815; &#xC785;&#xB825;</p>
-<pre><code class="lang-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;export ZEPPELIN_ADDR=centos-namenode-1&quot;</span> &gt;&gt; ZEPPELIN_HOME/conf/zeppelin-env.sh
-<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;export ZEPPELIN_PROT=8889&quot;</span> &gt;&gt; ZEPPELIN_HOME/conf/zeppelin-env.sh
-<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;export SPARK_HOME=/opt/spark-2.4.4&quot;</span> &gt;&gt; ZEPPELIN_HOME/conf/zeppelin-env.sh
+<pre><code class="lang-bash">[users]
+admin = admin, admin
+hdfs = hdfs, admin
 </code></pre>
+<h1 id="&#xC2E4;&#xD589;">&#xC2E4;&#xD589;</h1>
+<pre><code class="lang-bash">zeppelin-daemon.sh start
+</code></pre>
+<p><strong>&#xC811;&#xC18D; URL</strong></p>
+<p><a href="http://[ip].8889" target="_blank">http://[ip].8889</a></p>
+<p>works!!</p>
 
                                 
                                 </section>
@@ -225,14 +219,10 @@ chown -R hdfs:hadoop /opt/zeppelin
 
             
                 
-                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Apache Zeppelin">
+                <a href="zeppelin_install.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 다운로드 & 설치">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
-                
-                <a href="zeppelin_user.html" class="navigation navigation-next " aria-label="Next page: 유저 생성">
-                    <i class="fa fa-angle-right"></i>
-                </a>
                 
             
         
@@ -241,7 +231,7 @@ chown -R hdfs:hadoop /opt/zeppelin
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"다운로드 & 설치","level":"1.1.1","depth":2,"next":{"title":"유저 생성","level":"1.1.2","depth":2,"path":"zeppelin_user.md","ref":"zeppelin_user.md","articles":[]},"previous":{"title":"Apache Zeppelin","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[{"title":"다운로드 & 설치","level":"1.1.1","depth":2,"path":"zeppelin_install.md","ref":"zeppelin_install.md","articles":[]},{"title":"유저 생성","level":"1.1.2","depth":2,"path":"zeppelin_user.md","ref":"zeppelin_user.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ga","sitemap"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-158679578-1"},"sitemap":{"hostname":"https://ok-data.github.io/gitbook-zeppelin"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"zeppelin_install.md","mtime":"2020-02-15T11:58:47.923Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-18T13:43:18.841Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"유저 생성","level":"1.1.2","depth":2,"previous":{"title":"다운로드 & 설치","level":"1.1.1","depth":2,"path":"zeppelin_install.md","ref":"zeppelin_install.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["ga"],"pluginsConfig":{"ga":{"configuration":"auto","token":"UA-158679578-1"},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"zeppelin_user.md","mtime":"2020-02-16T04:27:09.010Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-02-18T12:49:18.828Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
